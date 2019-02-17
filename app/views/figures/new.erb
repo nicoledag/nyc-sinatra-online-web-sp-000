@@ -17,7 +17,7 @@
   <h2>Landmarks</h2>
 
   <%@landmarks.each do |l| %>
-  <label><%=l.name%></label><input type="checkbox" name="figure[landmark_ids][]" value="<%=l.id%>" id="title_<%=l.id%>"></input>
+  <label><%=l.name%></label><input type="checkbox" name="figure[landmark_ids][]" value="<%=l.id%>" id="landmark_<%=l.id%>"></input>
   <br>
   <%end%>
   <br>
@@ -27,8 +27,8 @@
   <label for="new_landmark">Name: </label>
   <input type="text" name="landmark[name]" id="new_landmark">
 
-  <label for="new_landmark">Year: </label>
-  <input type="text" name="landmark[year_completed]" id="new_landmark">
+  <label for="new_landmark_year">Year: </label>
+  <input type="text" name="landmark[year_completed]" id="new_landmark_year">
 
   <input type="submit" id="Submit" value="Create New Figure">
 
