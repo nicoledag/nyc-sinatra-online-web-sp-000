@@ -1,8 +1,7 @@
 <h2>All Historical Landmarks</h2>
 
-<%@figures.each do |f|%>
-<a href="/figures/<%= f.id %>"><h3><%= f.name%></h3></a>
-<%end%>
-
+<% @landmarks.each do |l| %>
+  <li><a href="/landmarks/<%= l.id %>"><%= l.name %> - <%= l.year_completed %></a>
+    <% end %>
 <a class="button" href="/figures">Figures</a>
 <a class="button" href="/">Home</a>
