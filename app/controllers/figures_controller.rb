@@ -58,11 +58,11 @@ class FiguresController < ApplicationController
     end
 
     if !params[:landmark][:name].empty?
-        @figure.landmarks << Landmark.update(name: arams[:landmark][:name])
+        @figure.landmarks << Landmark.update(name: params[:landmark][:name])
     end
 
     if !params[:landmark][:year_completed].empty?
-        @figure.landmarks << Landmark.update(name: arams[:landmark][:year_completed])
+        @figure.landmarks << Landmark.update(name: params[:landmark][:year_completed])
       else
         @landmark_id = Landmark.find_by(params[:figure][:landmark_ids])
         @figure.landmarks << @landmark_id
@@ -70,8 +70,6 @@ class FiguresController < ApplicationController
 
     redirect "/figures/#{@figure.id}"
   end
-
-
 
 
 end
