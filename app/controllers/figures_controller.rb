@@ -27,7 +27,7 @@ class FiguresController < ApplicationController
         @figure.landmarks << @landmark_id
     end
 
-    redirect "figures/#{@figure.id}"
+    redirect "/figures/#{@figure.id}"
   end
 
 
@@ -46,8 +46,32 @@ class FiguresController < ApplicationController
 
 
   patch "/figures/:id" do
-   
+
+    @figure = Figure.find(params[:id])
+    @figure.update(params[:figure])
+
+    if !params[:title][:name].empty?
+         @figure.titles << Title.update(name: params[:title][:name])
+      else
+        @title_id = Title.find_by(params[:figure][:title_ids])
+        @figure.titles << @title_id
+    end
+
+    if !params[:landmark][:name].empty?
+        @figure.landmarks << Landmark.update(name: arams[:landmark][:name])
+    end
+
+    if !params[:landmark][:year_completed].empty?
+        @figure.landmarks << Landmark.update(name: arams[:landmark][:year_completed])
+      else
+        @landmark_id = Landmark.find_by(params[:figure][:landmark_ids])
+        @figure.landmarks << @landmark_id
+    end
+
+    redirect "/figures/#{@figure.id}"
   end
+
+
 
 
 end
